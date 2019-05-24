@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% for file in files %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ file.Author }}</a>
+                </div>
+                <p class="article-content"><a href="{% url 'file-detail' file.id %}">{{ file.Name }}</a> - {{ file.Number }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}
